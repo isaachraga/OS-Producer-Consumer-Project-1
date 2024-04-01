@@ -1,3 +1,9 @@
+/*
+-Isaac Hraga
+-04/01/2024
+-Operating Systems
+-Project 1/Producer-Consumer Problem
+*/
 #include <iostream>
 #include <unistd.h>
 #include <sys/mman.h>
@@ -45,6 +51,7 @@ void producer(region* r){
 
 
     }
+    /*Producer Completion flag*/
     r->pDone = 1;
 
     cout<<"WAITING FOR CONSUMER"<<endl;

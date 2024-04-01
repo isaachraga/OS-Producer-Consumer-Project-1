@@ -1,3 +1,9 @@
+/*
+-Isaac Hraga
+-04/01/2024
+-Operating Systems
+-Project 1/Producer-Consumer Problem
+*/
 #include <iostream>
 #include <unistd.h>
 #include <sys/mman.h>
@@ -47,7 +53,7 @@ void consumer(region* r){
         while(r->a == 0 && r->b == 0 && r->pDone==0);
     } 
 
-
+    /*Consumer Completion flag*/
     r->cDone = 1;
     
     
