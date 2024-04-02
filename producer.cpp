@@ -33,7 +33,7 @@ void producer(region* r){
         while(r->a != 1){
             if(sem_trywait(&(r->s)) == 0){
                 r->a = 1;
-                cout << "Incremented A: " << r->a << " -- " << i << endl;
+                cout << "Produced A: " << r->a << " -- " << i << endl;
                 sem_post(&(r->s));
             } 
         }
@@ -41,7 +41,7 @@ void producer(region* r){
         while(r->b != 1){
             if(sem_trywait(&(r->s)) == 0){
                 r->b = 1;
-                cout << "Incremented B: " << r->b <<" -- " << i <<  endl;
+                cout << "PRoduced B: " << r->b <<" -- " << i <<  endl;
                 sem_post(&(r->s));
             }
             

@@ -37,7 +37,7 @@ void consumer(region* r){
         while(r->a != 0){
             if(sem_trywait(&(r->s)) == 0){
                 r->a = 0;
-                cout << "Decremented A: " << r->a <<" -- " << i <<  endl;
+                cout << "Consumed A: " << r->a <<" -- " << i <<  endl;
                 sem_post(&(r->s));
             }
         }
@@ -45,7 +45,7 @@ void consumer(region* r){
         while(r->b != 0){
             if(sem_trywait(&(r->s)) == 0){
                 r->b = 0;
-                cout << "Decremented B: " << r->b <<" -- " << i <<  endl;
+                cout << "Consumed B: " << r->b <<" -- " << i <<  endl;
                 sem_post(&(r->s));
             } 
         }
