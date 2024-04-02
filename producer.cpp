@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const int BUFFER_SIZE = 300;
+const int ITERATIONS = 300;
 
 /* Defines "structure" of shared memory */
 struct region {           
@@ -29,7 +29,7 @@ true, then waits in a while loop until a or b is consumed OR if the
 consumer met its buffer limit*/
 void producer(region* r){
     cout << "A: " << r->a << " | B: " << r->b << endl;
-    for(int i = 0; i < BUFFER_SIZE; ++i){
+    for(int i = 0; i < ITERATIONS; ++i){
         while(r->a != 1){
             if(sem_trywait(&(r->s)) == 0){
                 r->a = 1;

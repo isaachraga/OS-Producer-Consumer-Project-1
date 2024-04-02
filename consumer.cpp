@@ -13,8 +13,8 @@
 
 using namespace std;
 
-//#define MAX_LEN 10000
-const int BUFFER_SIZE = 300;
+
+const int ITERATIONS = 300;
 
 /* Defines "structure" of shared memory */
 struct region {        
@@ -33,7 +33,7 @@ void consumer(region* r){
     the table*/
     std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
-    for(int i = 0; i < BUFFER_SIZE; ++i){
+    for(int i = 0; i < ITERATIONS; ++i){
         while(r->a != 0){
             if(sem_trywait(&(r->s)) == 0){
                 r->a = 0;
